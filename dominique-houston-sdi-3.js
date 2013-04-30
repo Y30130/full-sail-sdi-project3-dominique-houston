@@ -100,18 +100,55 @@ var showClosing = function(encoreSong,closingSong){
 	return closingSegment;
 }
 
+// Concert Summary (Object Function + Accesor & Mutator)
+var concertSummary = {
+
+	"performingArtist": "Britney Spears",
+	"songsPerShow"    : "12",
+	"crowdSize"       : "50,000",
+	"showDuration"    : "65",
+	"songsPerShow"	  : "13",
+	"songDuration"       : function(){ // Method: Accessor
+		var minsPerSong = this.showDuration/this.songsPerShow;
+		return minsPerSong;
+	},
+	"setDuration"    : function(newDuration){ // Method: Mutator
+	
+		this.showDuration = newDuration;
+		
+		return concertSummary.showDuration;		
+		
+	}
+	
+}
+
 
 // My Functions
 var returnShowTotal = countShows(52,4);
 var returnShowDuration = minsPerShow(60);
-var returnDaysTraveling = songCountUp(4,daysOfTheWeek.length-3);
+var returnDaysPerforming = songCountUp(4,daysOfTheWeek.length-3);
 var returnSongTotal = songCountDown(12);
 var returnClosingSegment = showClosing(closingSong,encoreSong);
+var returnSongDuration = concertSummary.songDuration();
 
-
-// Console Logs
+// Console Logs + 
 
 console.log(performingArtist[0] + " will perform for a total of " + returnShowDuration + " minutes.");
-console.log(performingArtist[0] + " will be actively on the road touring and rehearsing for " + (returnDaysTraveling-3) + " days a week.");
-console.log("After each show " + performingArtist[0] + " will have " + returnSongTotal + " songs left to perform.");
+console.log("");
+
+console.log(performingArtist[0] + " will be actively on the road touring and rehearsing for " + (returnDaysPerforming-3) + " days a week.");
+console.log("");
+
+console.log(performingArtist[0] + " will perform each song for " + returnSongDuration + " minutes.");
+console.log("");
+
 console.log(performingArtist[0] + " will perform " + returnClosingSegment + " for the closing segment.");
+console.log("");
+
+console.log("After each show " + performingArtist[0] + " will have " + returnSongTotal + " songs left to perform.");
+console.log("");
+
+concertSummary.setDuration(104);
+
+console.log("If the  show duration is increased to " + concertSummary.showDuration + " minutes, " + performingArtist[0] + " will perform each song for " + concertSummary.songDuration() + " minutes.");
+console.log("");
