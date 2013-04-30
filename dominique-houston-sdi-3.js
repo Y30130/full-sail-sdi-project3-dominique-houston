@@ -26,7 +26,7 @@ var performingArtists = {
 var performingArtist = ["Britney Spears","Lady Gaga"];
 var showsPerWeek = 4;
 var weeksPerYear = 52;
-var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday", "Sunday"]
+var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", ]
 var showsBooked = true;
 var showSoldOut = true;
 var showDurationMins = 60;
@@ -43,8 +43,9 @@ var countShows = function (weeksPerYear,showsPerWeek) {
 if (showSoldOut == true) {
 	minsPerShow = function (showDurationMins) {
 		var showDuration = showDurationMins+encoreLength;
-		console.log("Since the show was sold out, there will be an encore performance.");
 		return showDuration;
+		console.log("Since the show was sold out, there will be an encore performance.");
+
 	} 
 } 
 else {
@@ -55,11 +56,30 @@ else {
 	}
 }
 
+
+// Count Up (Array Function + For Loop)
+var songCountUp = function(daysPerforming,howMany) {
+	for (var i = 0; i < daysOfTheWeek.length; i = i + 1 ){
+		console.log("She will be performing " + daysPerforming + " days a week.");
+		if (i < howMany) {
+			console.log("On " + daysOfTheWeek[i] + " there will be a performance.");
+		}
+		else {
+			console.log("On " + daysOfTheWeek[i] + " she will not be performing. The tour is schedule for a break.")
+		}
+		console.log("");
+	}
+	return i;
+}
+
+
 // My Functions
 var returnShowTotal = countShows(52,4);
 var returnShowDuration = minsPerShow(60);
+var returnDaysTraveling = songCountUp(4,daysOfTheWeek.length-3);
 
 
 // Console Logs
 
 console.log(performingArtist[0] + " will perform for a total of " + returnShowDuration + " minutes.");
+console.log(performingArtist[0] + " will be actively on the road touring and rehearsing for " + (returnDaysTraveling-3) + " days a week.");
