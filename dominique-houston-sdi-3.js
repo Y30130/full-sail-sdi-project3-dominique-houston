@@ -43,7 +43,7 @@ var countShows = function (weeksPerYear,showsPerWeek) {
 
 // Determine If Encore Song Will Be Performed (Boolean Function)
 if (showSoldOut == true) {
-	minsPerShow = function (showDurationMins) {
+	var minsPerShow = function (showDurationMins) {
 		var showDuration = showDurationMins+encoreLength;
 		return showDuration;
 		console.log("Since the show was sold out, there will be an encore performance.");
@@ -51,10 +51,11 @@ if (showSoldOut == true) {
 	} 
 } 
 else {
-	minsPerShow = function (showDurationMins) {
+	var minsPerShow = function (showDurationMins) {
 		var showDuration = showDurationMins;
-		console.log("Since the show was not sold out, there will not be an encore performance.");
 		return showDuration;
+		console.log("Since the show was not sold out, there will not be an encore performance.");
+		
 	}
 }
 
@@ -104,7 +105,6 @@ var showClosing = function(encoreSong,closingSong){
 var concertSummary = {
 
 	"performingArtist": "Britney Spears",
-	"songsPerShow"    : "12",
 	"crowdSize"       : "50,000",
 	"showDuration"    : "65",
 	"songsPerShow"	  : "13",
