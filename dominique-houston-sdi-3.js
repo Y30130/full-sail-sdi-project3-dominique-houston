@@ -31,6 +31,8 @@ var showsBooked = true;
 var showSoldOut = true;
 var showDurationMins = 60;
 var encoreLength = 5;
+var closingSong= "\"...Baby One More Time\"";
+var encoreSong= "\"Till The World Ends\"";
 
 
 // Determine How Many Shows Total (Procedure)
@@ -92,11 +94,19 @@ var songCountDown = function(songs) {
 }
 
 
+// Determine Closing and Encore Songs (String Function)
+var showClosing = function(encoreSong,closingSong){
+	var closingSegment = encoreSong + " and " + closingSong;
+	return closingSegment;
+}
+
+
 // My Functions
 var returnShowTotal = countShows(52,4);
 var returnShowDuration = minsPerShow(60);
 var returnDaysTraveling = songCountUp(4,daysOfTheWeek.length-3);
 var returnSongTotal = songCountDown(12);
+var returnClosingSegment = showClosing(closingSong,encoreSong);
 
 
 // Console Logs
@@ -104,3 +114,4 @@ var returnSongTotal = songCountDown(12);
 console.log(performingArtist[0] + " will perform for a total of " + returnShowDuration + " minutes.");
 console.log(performingArtist[0] + " will be actively on the road touring and rehearsing for " + (returnDaysTraveling-3) + " days a week.");
 console.log("After each show " + performingArtist[0] + " will have " + returnSongTotal + " songs left to perform.");
+console.log(performingArtist[0] + " will perform " + returnClosingSegment + " for the closing segment.");
